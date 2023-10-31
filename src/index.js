@@ -1,14 +1,18 @@
-import AbstractEvent from 'shared/AbstractEvent';
-import AbstractPlugin from 'shared/AbstractPlugin';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
-import * as Sensors from './Draggable/Sensors';
-import * as Plugins from './Plugins';
 
-export {AbstractEvent as BaseEvent, AbstractPlugin as BasePlugin};
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
 
-export {default as Draggable} from './Draggable';
-export {default as Droppable} from './Droppable';
-export {default as Swappable} from './Swappable';
-export {default as Sortable} from './Sortable';
 
-export {Sensors, Plugins};

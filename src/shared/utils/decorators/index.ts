@@ -1,1 +1,0 @@
-export {AutoBind} from './AutoBind';

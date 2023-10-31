@@ -1,163 +1,70 @@
-[![npm version](https://img.shields.io/npm/v/@shopify/draggable.svg?label=@shopify/draggable)](https://www.npmjs.com/package/@shopify/draggable) [![CI](https://github.com/shopify/draggable/workflows/CI/badge.svg)](https://github.com/Shopify/draggable/actions?query=branch%3Amain) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Shopify/draggable/blob/main/CONTRIBUTING.md) ![Bundle size](https://img.shields.io/badge/Bundle%20size-16.2kB-red.svg)
+# Frontend Mentor - Kanban task management web app solution
 
-<a href="https://shopify.github.io/draggable" title="Visit Draggable website">
-  <img src="https://user-images.githubusercontent.com/643944/35602291-99e2c56e-0605-11e8-847f-95f1f6be1610.jpg" alt="">
-</a>
+- [this project YouTube video Tutorial](https://www.youtube.com/watch?v=3RWMktZNsJQ&t=1707s)
 
-# Development
+This is a solution to the [Kanban task management web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-**Draggable is no longer maintained by its original authors.** Maintenance of this repo has been passed on to new collaborators and is no longer worked on by anyone at Shopify.
+## Table of contents
 
-**We are still looking for more maintainers!** If anyone is interested in answering / triaging issues, reviewing / rejecting / approving PRs, and authoring code for bug fixes / new features — please send an email to `max.hoffmann (at) shopify (dot) com`. You may be asked a few questions before obtaining collaboration permission, but if everything checks out, we will happily add you as a collaborator.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
----
+## Overview
 
-Get complete control over drag and drop behaviour with Draggable! Draggable abstracts
-native browser events into a comprehensive API to create a custom drag and drop experience.
-`Draggable` comes with additional modules: `Sortable`, `Droppable`, `Swappable`. Draggable
-itself does not perform any sorting behaviour while dragging, but does the heavy lifting, e.g.
-creates mirror, emits events, manages sensor events, makes elements draggable.
+### The challenge
 
-The additional modules are built on top of `Draggable` and therefore provide a similar API
-interface, for more information read the documentation below.
+Users should be able to:
 
-**Features**
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Create, read, update, and delete boards and tasks
+- Receive form validations when trying to create/edit boards and tasks
+- Mark subtasks as complete and move tasks between columns
+- Hide/show the board sidebar
 
-- Works with native drag, mouse, touch and force touch events
-- Can extend dragging behaviour by hooking into draggables event life cycle
-- Can extend drag detection by adding sensors to draggable
-- The library is targeted ES6 first
+Expected Behaviour:
 
-## Table of Contents
+- Boards
+  - Clicking different boards in the sidebar will change to the selected board.
+  - Clicking "Create New Board" in the sidebar opens the "Add New Board" modal.
+  - Clicking in the dropdown menu "Edit Board" opens up the "Edit Board" modal where details can be changed.
+  - Columns are added and removed for the Add/Edit Board modals.
+  - Deleting a board deletes all columns and tasks and requires confirmation.
+- Columns
+  - A board needs at least one column before tasks can be added. If no columns exist, the "Add New Task" button in the header is disabled.
+  - Clicking "Add New Column" opens the "Edit Board" modal where columns are added.
+- Tasks
+  - Adding a new task adds it to the bottom of the relevant column.
+  - Updating a task's status will move the task to the relevant column.
 
-- [Install](#install)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [Copyright](#copyright)
+Bonus:
 
-## Install
+- The tasks can be dragged and dropped to a new column.
 
-You can install the library via npm.
+### Screenshot
 
-```bash
-npm install @shopify/draggable --save
-```
+![Screenshot](<./public/screenshots/Screen%20Shot%202023-03-29%20at%201.40.56%20PM%20(2).png>)
 
-or via yarn:
+### Links
 
-```bash
-yarn add @shopify/draggable
-```
+- Live Site URL: [link](https://kanban-task-management-react-tailwind.vercel.app/)
 
-or via CDN
+### Built with
 
-```html
-<!-- Entire bundle -->
-<script type="module">
-  import {
-    Draggable,
-    Sortable,
-    Droppable,
-    Swappable,
-  } from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/index.mjs';
-</script>
-<!-- Draggable only -->
-<script type="module">
-  import Draggable from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/Draggable/Draggable.mjs';
-</script>
-<!-- Sortable only -->
-<script type="module">
-  import Sortable from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/Sortable/Sortable.mjs';
-</script>
-<!-- Droppable only -->
-<script type="module">
-  import Droppable from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/Droppable/Droppable.mjs';
-</script>
-<!-- Swappable only -->
-<script type="module">
-  import Swappable from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/Swappable/Swappable.mjs';
-</script>
-<!-- Plugins only -->
-<script type="module">
-  import * as Plugins from 'https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/Plugins/index.mjs';
-</script>
-<!-- UMD browser -->
-<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable/build/umd/index.min.js"></script>
-<script>
-  console.log(window.Draggable);
-</script>
-```
+- [TailwindCSS](https://tailwindcss.com/) - CSS Framework
+- Drag and Drop API
+- [React](https://reactjs.org/) - JS library
+- [Redux](https://redux.js.org/) - State management tool
 
-## Browser Compatibility
+### Useful resources
 
-Check the "browserlist" property in [package.json](https://github.com/Shopify/draggable/blob/main/package.json#L88) for more info
+- [Drag and Drop quick tutorial](https://www.youtube.com/watch?v=u65Y-vqYNAk)
 
-| ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Last 3 versions ✔                                                                       | Last 3 versions ✔                                                                          | Last 3 versions ✔                                                                    | Last 3 versions ✔                                                                       | Last 3 versions ✔                                                                 |
+## Author
 
-## Documentation
-
-You can find the documentation for each module within their respective directories.
-
-- [Draggable](src/Draggable)
-  - [DragEvent](src/Draggable/DragEvent)
-  - [DraggableEvent](src/Draggable/DraggableEvent)
-  - [Plugins](src/Draggable/Plugins)
-    - [Announcement](src/Draggable/Plugins/Announcement)
-    - [Focusable](src/Draggable/Plugins/Focusable)
-    - [Mirror](src/Draggable/Plugins/Mirror)
-    - [MirrorEvent](src/Draggable/Plugins/Mirror/MirrorEvent)
-    - [Scrollable](src/Draggable/Plugins/Scrollable)
-  - [Sensors](src/Draggable/Sensors)
-    - [DragSensor](src/Draggable/Sensors/DragSensor)
-    - [ForceTouchSensor](src/Draggable/Sensors/ForceTouchSensor)
-    - [MouseSensor](src/Draggable/Sensors/MouseSensor)
-    - [Sensor](src/Draggable/Sensors/Sensor)
-    - [SensorEvent](src/Draggable/Sensors/SensorEvent)
-    - [TouchSensor](src/Draggable/Sensors/TouchSensor)
-- [Droppable](src/Droppable)
-  - [DroppableEvent](src/Droppable/DroppableEvent)
-- [Plugins](src/Plugins)
-  - [Collidable](src/Plugins/Collidable)
-  - [ResizeMirror](src/Plugins/ResizeMirror)
-  - [Snappable](src/Plugins/Snappable)
-  - [SwapAnimation](src/Plugins/SwapAnimation)
-  - [SortAnimation](src/Plugins/SortAnimation)
-- [Sortable](src/Sortable)
-  - [SortableEvent](src/Sortable/SortableEvent)
-- [Swappable](src/Swappable)
-  - [SwappableEvent](src/Swappable/SwappableEvent)
-
-### TypeScript
-
-Draggable includes [TypeScript](http://typescriptlang.org) definitions.
-
-[Documentation](doc/typescript.md)
-
-## Running examples
-
-To run the `examples` project locally, simply run the following from the `draggable` root:
-
-```bash
-yarn && yarn start
-```
-
-This will start a server that hosts the contents of `examples/`. It also watches for file
-changes from both `src/` and `examples/src` and reloads the browser.
-
-## Contributing
-
-Contributions are more than welcome, the code base is still new and needs more love.
-
-For more information, please checkout the [contributing document](https://github.com/Shopify/draggable/blob/main/CONTRIBUTING.md).
-
-## Related resources
-
-- [Ember CLI Shim](https://github.com/timrourke/ember-cli-shopify-draggable-shim) on Github by [@timrourke](https://github.com/timrourke)
-- [Ember CLI Shim](https://www.npmjs.com/package/ember-cli-shopify-draggable-shim) on NPM by [@timrourke](https://github.com/timrourke)
-
-## Copyright
-
-Copyright (c) 2018-present Shopify. See LICENSE.md for further details.
+- LinkedIn - [Hesam DearBoy](https://www.linkedin.com/in/hesam-azizpour-23259b265/)
